@@ -32,6 +32,7 @@ Meteor.methods({
 		if (task.private && task.owner !== this.userId) {
 			throw new Meteor.Error('not-authorized');
 		}
+		Tasks.remove(task);
 	},
 
 	'tasks.setChecked'(taskId, setChecked) {
